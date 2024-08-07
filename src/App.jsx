@@ -62,16 +62,16 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <div className='w-[100%] h-[90%] bg-slate-950'>
+    <div className='w-[100%] h-[90%] bg-slate-950 overflow-hidden'>
       {/* <Layout> */}
       <NavBar/>
-      <div className='flex flex-row h-[100%]'>
+      <div className='md:flex flex-col md:flex-row h-[100%]'>
         <SideNav/>
         {/* Dashboard Content Section */}
-        <div>
-          <h1 className='font-inter font-bold text-3xl text-slate-50 mx-8 mt-8 mb-2'> Dashboard </h1>
+        <div className='mt-24 sm:mt-0 md:mt-0'>
+          <h1 className='font-inter font-bold text-2xl sm:text-3xl md:text-3xl text-slate-50 mx-8 mt-8 mb-8 md:mb-2'> Dashboard </h1>
           <div className='flex-col md:flex md:flex-row sm:flex-col h-1/5 mx-8 justify-between items-center'>
-            <div className='w-2/3 md:w-2/3 md:flex grid grid-cols-2 gap-4 md:gap-0 h-2/3'>
+            <div className='w-full md:w-2/3 md:flex sm:grid sm:grid-cols-2 sm:gap-6 md:gap-0 h-2/3'>
               {
                 infoCards.map(item=> (
                   <InfoCard 
@@ -91,8 +91,8 @@ function App() {
             </div>
           </div>
 
-          <div className='flex flex-row h-[300px] mx-8 justify-between items-center'>
-            <div className='chartContainer w-2/3 flex flex-col h-full bg-gray-800 rounded-lg'>
+          <div className='md:flex flex-col md:flex-row h-[700px] md:h-[300px] mx-8 justify-between items-center'>
+            <div className='chartContainer w-full md:w-2/3 flex flex-col mt-8 md:mt-0 h-1/2 md:h-full bg-gray-800 rounded-lg'>
               <div className='chartHeadSection flex flex-row mx-6 mt-6 justify-between items-center'>
                 <h1 className='font-inter font-bold text-xl text-slate-50'> Activity </h1>
                 <ChartDropdown/>
@@ -111,13 +111,13 @@ function App() {
                 })}
                 xAxis={[{ scaleType: 'band', data: ['group A', 'group B', 'group C', 'group D', 'group E'] }]}
                 series={[{ data: [4, 3, 5, 1, 4] }, { data: [1, 6, 3, 7, 5] }, { data: [5, 6, 4, 2, 1] }, { data: [4, 3, 2, 1, 5] }]}
-                className='w-2/3 h-full'
+                className='w-full md:w-2/3 h-1/3 md:h-full'
                 borderRadius={10}
                 //width={500}
                 //height={300}
               />
             </div>
-            <div className='actionsContainer w-1/3 h-full'>
+            <div className='actionsContainer w-full md:w-1/3 h-[40%] md:h-full mt-8 md:mt-0'>
               <ActionsCard/>
             </div>
           </div>
@@ -135,11 +135,11 @@ function App() {
                 </div>
                 </div> */}
 
-          <div className='flex flex-row mx-8 h-[50%] justify-between pt-12'>
-            <div className='w-2/3'>
+          <div className='md:flex flex-col md:flex-row mx-8 h-[75%] md:h-[50%] justify-between pt-0 md:pt-12 pb-24 md:pb-0'>
+            <div className='w-full md:w-2/3'>
               <RecentTable/>
             </div>
-            <div className='w-[413px]'>
+            <div className='w-full md:w-[413px] mt-8 md:mt-0'>
               <FeedbackCard/>
             </div>
           </div>

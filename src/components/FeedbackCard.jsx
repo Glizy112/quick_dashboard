@@ -33,7 +33,7 @@ const feedbacks = [
 const FeedbackCard = () => {
   return (
     <div className='w-full h-full max-h-full overflow-y-scroll flex flex-col p-6 bg-gray-800 rounded-lg'>
-        <h1 className='font-inter font-bold text-xl text-slate-50'> Customer's Feedback </h1>
+        <h1 className='font-inter font-bold text-xl sm:text-2xl md:text-2xl text-slate-50'> Customer's Feedback </h1>
         <div className='mt-2'>
             {
                 feedbacks.map(item=> (

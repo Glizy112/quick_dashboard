@@ -25,12 +25,12 @@ const actions = [
 
 const ActionsCard = (props) => {
   return (
-    <div className='w-[413px] float-end h-full flex flex-col p-6 justify-between bg-gray-800 rounded-lg'>
+    <div className='w-full md:w-[413px] float-end h-full flex flex-col p-6 justify-between bg-gray-800 rounded-lg'>
         {
             actions.map(item=> (
                 <div key={item.id} className='flex flex-row items-center justify-between'>
                     <div className='flex items-center'>
-                        <div className='p-4 items-center justify-center rounded-full' style={{background: item.bgColor}}>
+                        <div className='p-3 sm:p-4 md:p-4 items-center justify-center rounded-full' style={{background: item.bgColor}}>
                             {item.icon}
                         </div>
                         <p className='font-inter font-normal text-base text-slate-100 ml-3'> {item.title} </p>

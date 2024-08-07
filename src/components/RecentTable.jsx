@@ -2,8 +2,9 @@ import React from 'react'
 import { FiUser } from 'react-icons/fi'
 import StatusTag from './StatusTag'
 import Avatar from './Avatar'
+import MobileTable from './MobileTable'
 
-const userData = [
+export const userData = [
     {
         id: 1,
         fullName: 'Wade Warren',
@@ -57,7 +58,7 @@ const userData = [
 const RecentTable = () => {
   return (
     <div className='w-full h-full flex flex-col p-6 bg-gray-800 rounded-lg'>
-        <h1 className='font-inter font-bold text-2xl text-slate-50'> Recent Orders </h1>
+        <h1 className='font-inter font-bold text-xl sm:text-2xl md:text-2xl text-slate-50'> Recent Orders </h1>
         {/* <ul className='flex flex-row justify-between items-center my-4'>
             <li className='font-inter font-semibold text-base text-white'>Customer</li>
             <li className='font-inter font-semibold text-base text-white'>Order No.</li>
@@ -82,39 +83,46 @@ const RecentTable = () => {
                 ))
             }
         </div> */}
-
-        <table className='mt-8'>
-            <thead>
-                <tr>
-                    {
-                        ["Customer", "Order No.", "Amount", "Status"].map((item, index)=> (
-                            <td key={index} className='font-inter font-medium text-base text-white pb-2'>{item}</td>
-                        ))
-                    }
-                </tr>
-            </thead>
-            <tbody>
-                {
-                  userData.map(user=> (
-                    <tr key={user.id} className='border-separate border-spacing-2 border-t border-gray-500 items-center'>
-                        <td className='flex my-4 py-3 items-end'>
-                            <Avatar width={28} height={28}/>
-                            <p className='font-inter font-normal text-base text-white ml-2'> {user.fullName} </p>
-                        </td>
-                        <td className='pt-2'>
-                            <p className='font-inter font-normal text-base text-white'> {user.orderNo} </p>
-                        </td>
-                        <td className='pt-2'>
-                            <p className='font-inter font-normal text-base text-white'> ${user.amount} </p>
-                        </td>
-                        <td className='w-1/5 pt-2'>
-                            <StatusTag status={user.status} isSuccess={user.isSuccess}/>
-                        </td>
-                    </tr>
-                  ))  
-                }
-            </tbody>
-        </table>
+        {
+            window.innerWidth < 640 ? (
+                <MobileTable/>
+            )
+            :
+            (
+                <table className='mt-6'>
+                    <thead>
+                        <tr>
+                            {
+                                ["Customer", "Order No.", "Amount", "Status"].map((item, index)=> (
+                                    <td key={index} className='font-inter font-medium text-base text-white pb-2'>{item}</td>
+                                ))
+                            }
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                        userData.map(user=> (
+                            <tr key={user.id} className='border-separate border-spacing-2 border-t border-gray-500 items-center'>
+                                <td className='flex my-4 py-3 items-end'>
+                                    <Avatar width={28} height={28}/>
+                                    <p className='font-inter font-normal text-base text-white ml-2'> {user.fullName} </p>
+                                </td>
+                                <td className='pt-2'>
+                                    <p className='font-inter font-normal text-base text-white'> {user.orderNo} </p>
+                                </td>
+                                <td className='pt-2'>
+                                    <p className='font-inter font-normal text-base text-white'> ${user.amount} </p>
+                                </td>
+                                <td className='w-1/5 pt-2'>
+                                    <StatusTag status={user.status} isSuccess={user.isSuccess}/>
+                                </td>
+                            </tr>
+                        ))  
+                        }
+                    </tbody>
+                </table>
+            )
+        }
 
     </div>
   )

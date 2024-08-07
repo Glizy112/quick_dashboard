@@ -7,12 +7,12 @@ const InfoCard = (props) => {
     <div 
       key={props?.id} 
       className={
-        props?.id === 1 ? 'w-5/6 md:w-1/4 h-full p-4 flex flex-col bg-gray-800 rounded-lg justify-between'
-        : 'w-5/6 md:w-1/4 h-full p-4 flex flex-col md:ml-4 bg-gray-800 rounded-lg justify-between'
+        props?.id === 1 ? 'w-full md:w-1/4 mt-4 sm:mt-0 md:mt-0 h-full p-4 flex flex-col bg-gray-800 rounded-lg justify-between'
+        : 'w-full md:w-1/4 mt-4 sm:mt-0 md:mt-0 h-full p-4 flex flex-col md:ml-4 bg-gray-800 rounded-lg justify-between'
       }
     >
         <div className=''>
-            <div className='w-1/3 p-2 bg-opacity-60 rounded-xl' style={{background: props?.bgColor}}>
+            <div className='w-1/5 md:w-1/3 p-2 bg-opacity-60 rounded-xl' style={{background: props?.bgColor}}>
               {props?.icon}
             </div>
             <p className='font-inter font-normal text-sm text-slate-100 mt-3'> {props?.title} </p>
@@ -21,12 +21,13 @@ const InfoCard = (props) => {
             <p className='font-inter font-bold text-3xl text-white'> {props?.id === 4 ? '$'+props?.value : props?.value} </p>
             <div className='flex items-center'>
                 {
-                  props?.success ? <VscTriangleUp color={"#22c55e"} size={18}/>
-                  : <VscTriangleDown color={"#f05"} size={18}/>
+                  props?.success ? <VscTriangleUp color={"#22c55e"} size={innerWidth < 640 ? 24 : 18}/>
+                  : <VscTriangleDown color={"#f05"} size={innerWidth < 640 ? 24 : 18}/>
                 }
                 <p 
                   className={
-                    props?.success ? 'font-inter text-sm ml-2 text-green-500' : 'font-inter text-sm ml-2 text-red-500'
+                    props?.success ? 'font-inter text-base sm:text-sm md:text-sm ml-2 text-green-500' 
+                    : 'font-inter text-base sm:text-sm md:text-sm ml-2 text-red-500'
                   }
                 > {props?.marginPercent}% </p>
             </div>
