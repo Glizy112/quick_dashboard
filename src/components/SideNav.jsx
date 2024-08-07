@@ -15,12 +15,10 @@ const SideNav = () => {
           <FiPocket className='text-[#e7e5eb] ml-9 sm:ml-24 md:ml-9 md:mt-12' size={28}/>
           <FiShoppingBag className='text-[#e7e5eb] ml-9 sm:ml-24 md:ml-9 md:mt-12' size={28}/>
         </div>
-        {/* <div className='p-3 bg-gray-600 rounded-full'> */}
-          <FiLogOut 
-            className='text-[#e7e5eb] mr-4 sm:mr-8 md:mr-0 self-center bg-gray-600 md:bg-transparent bg-opacity-40 md:bg-opacity-100 p-2 md:p-0 w-[12%] sm:w-[6%] md:w-8 h-[6%] md:h-8 rounded-full' 
-            size={24}
-          />
-        {/* </div> */}
+        <FiLogOut 
+          className='text-[#e7e5eb] mr-4 sm:mr-8 md:mr-0 self-center bg-gray-600 md:bg-transparent bg-opacity-40 md:bg-opacity-100 p-2 md:p-0 w-[12%] sm:w-[6%] md:w-8 h-[6%] md:h-8 rounded-full' 
+          size={24}
+        />
     </div>
   )
 }

@@ -7,7 +7,6 @@ const SearchBar = () => {
         <FiSearch color={"#fff"} size={20}/>
         <input
           name="searchInput"
-          //value={""}
           placeholder="Search"
           className='bg-transparent mx-4 text-slate-100 focus:outline-none font-inter font-light'
         />

@@ -1,5 +1,5 @@
 import React from 'react'
-import { FiTarget, FiTrendingUp, FiClipboard, FiChevronRight } from 'react-icons/fi'
+import { FiChevronRight } from 'react-icons/fi'
 import { BiFoodMenu, BiDish, BiTargetLock } from 'react-icons/bi'
 
 const actions = [
@@ -23,7 +23,7 @@ const actions = [
     },
 ]
 
-const ActionsCard = (props) => {
+const ActionsCard = () => {
   return (
     <div className='w-full md:w-[413px] float-end h-full flex flex-col p-6 justify-between bg-gray-800 rounded-lg'>
         {

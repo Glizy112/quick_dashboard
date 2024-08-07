@@ -1,5 +1,4 @@
 import React from 'react'
-import { FiActivity, FiArrowUp, FiArrowUpCircle, FiShoppingBag, FiTrendingDown } from 'react-icons/fi'
 import { VscTriangleDown, VscTriangleUp } from 'react-icons/vsc'
 
 const InfoCard = (props) => {

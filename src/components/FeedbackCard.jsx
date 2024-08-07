@@ -1,5 +1,4 @@
 import React from 'react'
-import { FiUser } from 'react-icons/fi'
 import { BsStarFill } from 'react-icons/bs'
 import Avatar from './Avatar'
 

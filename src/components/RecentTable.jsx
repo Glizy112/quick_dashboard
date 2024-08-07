@@ -1,5 +1,4 @@
 import React from 'react'
-import { FiUser } from 'react-icons/fi'
 import StatusTag from './StatusTag'
 import Avatar from './Avatar'
 import MobileTable from './MobileTable'
@@ -59,30 +58,6 @@ const RecentTable = () => {
   return (
     <div className='w-full h-full flex flex-col p-6 bg-gray-800 rounded-lg'>
         <h1 className='font-inter font-bold text-xl sm:text-2xl md:text-2xl text-slate-50'> Recent Orders </h1>
-        {/* <ul className='flex flex-row justify-between items-center my-4'>
-            <li className='font-inter font-semibold text-base text-white'>Customer</li>
-            <li className='font-inter font-semibold text-base text-white'>Order No.</li>
-            <li className='font-inter font-semibold text-base text-white'>Amount</li>
-            <li className='font-inter font-semibold text-base text-white'>Status</li>
-        </ul>
-        <div className='justify-between items-center'>
-            {
-                userData.map(user=> (
-                    <div key={user.id}>
-                        <div className='bg-gray-400 w-full '/>
-                        <div className='flex flex-row items-center justify-between'>
-                            <div className='flex items-center'>
-                                <FiUser color={"#fff"} size={20}/>
-                                <p className='font-inter font-medium text-lg text-white ml-2'> {user.fullName} </p>
-                            </div>
-                            <p className='font-inter font-medium text-lg text-white'> {user.orderNo} </p>
-                            <p className='font-inter font-medium text-lg text-white'> {user.amount} </p>
-                            <StatusTag status={user.status} isSuccess={user.isSuccess}/>
-                        </div>
-                    </div>
-                ))
-            }
-        </div> */}
         {
             window.innerWidth < 640 ? (
                 <MobileTable/>
