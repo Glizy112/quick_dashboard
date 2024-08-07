@@ -1,5 +1,6 @@
 import React from 'react'
 import { FiActivity, FiArrowUp, FiArrowUpCircle, FiShoppingBag, FiTrendingDown } from 'react-icons/fi'
+import { VscTriangleDown, VscTriangleUp } from 'react-icons/vsc'
 
 const InfoCard = (props) => {
   return (
@@ -19,7 +20,10 @@ const InfoCard = (props) => {
         <div className='flex flex-row justify-between mt-5'>
             <p className='font-inter font-bold text-3xl text-white'> {props?.id === 4 ? '$'+props?.value : props?.value} </p>
             <div className='flex items-center'>
-                <FiArrowUpCircle color={props?.success ? "#22c55e" : "#f05"} size={18}/>
+                {
+                  props?.success ? <VscTriangleUp color={"#22c55e"} size={18}/>
+                  : <VscTriangleDown color={"#f05"} size={18}/>
+                }
                 <p 
                   className={
                     props?.success ? 'font-inter text-sm ml-2 text-green-500' : 'font-inter text-sm ml-2 text-red-500'

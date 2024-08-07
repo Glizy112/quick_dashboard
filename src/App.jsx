@@ -15,6 +15,9 @@ import RubbishCan from './components/RubbishCan'
 import ShoppingBagGreen from './components/ShoppingBagGreen'
 import ShoppingBagRed from './components/ShoppingBagRed'
 import Revenue from './components/Revenue'
+import NavBar from './components/NavBar'
+import SideNav from './components/SideNav'
+import ChartDropdown from './components/ChartDropdown'
 
 const infoCards = [
   {
@@ -59,86 +62,90 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <div className='container h-full  bg-slate-950'>
-      <Layout>
-        <h1 className='font-inter font-bold text-3xl text-slate-50 mx-8 mt-8 mb-2'> Dashboard </h1>
-        <div className='flex-col md:flex md:flex-row h-1/5 mx-8 justify-between items-center'>
-          <div className='w-full md:w-2/3 md:flex grid grid-cols-2 gap-4 md:gap-0 h-3/4'>
-            {
-              infoCards.map(item=> (
-                <InfoCard 
-                  id={item.id} 
-                  title={item.title} 
-                  value={item.value} 
-                  marginPercent={item.marginPercent} 
-                  success={item.success}
-                  icon={item.icon}
-                  bgColor={item.bg}
-                />
-              ))
-            }
-          </div>
-          <div className='h-3/4 mt-8 md:mt-0'>
-            <ProfitCard/>
-          </div>
-        </div>
-
-        <div className='flex flex-row h-[360px] mx-8 justify-between items-center'>
-          <div className='w-2/3 flex flex-col h-full bg-gray-800 rounded-lg'>
-            <div className='flex flex-row mx-6 mt-6 justify-between items-center'>
-              <h1 className='font-inter font-bold text-xl text-slate-50'> Activity </h1>
-              <div className='flex py-2 px-3 bg-gray-600 rounded-full items-center justify-between'>
-                <p className='font-inter font-normal text-slate-100 text-sm'> Weekly </p>
-                <FiChevronDown color={"#fff"} size={16}/>
-              </div>
+    <div className='w-[100%] h-[90%] bg-slate-950'>
+      {/* <Layout> */}
+      <NavBar/>
+      <div className='flex flex-row h-[100%]'>
+        <SideNav/>
+        {/* Dashboard Content Section */}
+        <div>
+          <h1 className='font-inter font-bold text-3xl text-slate-50 mx-8 mt-8 mb-2'> Dashboard </h1>
+          <div className='flex-col md:flex md:flex-row sm:flex-col h-1/5 mx-8 justify-between items-center'>
+            <div className='w-2/3 md:w-2/3 md:flex grid grid-cols-2 gap-4 md:gap-0 h-2/3'>
+              {
+                infoCards.map(item=> (
+                  <InfoCard 
+                    id={item.id} 
+                    title={item.title} 
+                    value={item.value} 
+                    marginPercent={item.marginPercent} 
+                    success={item.success}
+                    icon={item.icon}
+                    bgColor={item.bg}
+                  />
+                ))
+              }
             </div>
-            <BarChart
-              sx={(theme)=> ({
-                [`.${axisClasses.root}`]: {
-                  [`.${axisClasses.tick}, .${axisClasses.line}`]: {
-                    stroke: '#cbd5e1',
-                    strokeWidth: 1,
-                  },
-                  [`.${axisClasses.tickLabel}`]: {
-                    fill: '#cbd5e1',
-                  },
-                },
-              })}
-              xAxis={[{ scaleType: 'band', data: ['group A', 'group B', 'group C', 'group D', 'group E'] }]}
-              series={[{ data: [4, 3, 5, 1, 4] }, { data: [1, 6, 3, 7, 5] }, { data: [5, 6, 4, 2, 1] }, { data: [4, 3, 2, 1, 5] }]}
-              className='w-2/3 h-full'
-              borderRadius={10}
-              //width={500}
-              //height={300}
-            />
+            <div className='h-2/3 mt-8 md:mt-0'>
+              <ProfitCard/>
+            </div>
           </div>
-          <div className='w-1/3 h-full'>
-            <ActionsCard/>
-          </div>
-        </div>
 
-        {/* <div classname='grid grid-cols-3 gap-4 mx-8'>
-          <div className='flex h-full'>
+          <div className='flex flex-row h-[300px] mx-8 justify-between items-center'>
+            <div className='chartContainer w-2/3 flex flex-col h-full bg-gray-800 rounded-lg'>
+              <div className='chartHeadSection flex flex-row mx-6 mt-6 justify-between items-center'>
+                <h1 className='font-inter font-bold text-xl text-slate-50'> Activity </h1>
+                <ChartDropdown/>
+              </div>
+              <BarChart
+                sx={(theme)=> ({
+                  [`.${axisClasses.root}`]: {
+                    [`.${axisClasses.tick}, .${axisClasses.line}`]: {
+                      stroke: '#cbd5e1',
+                      strokeWidth: 1,
+                    },
+                    [`.${axisClasses.tickLabel}`]: {
+                      fill: '#cbd5e1',
+                    },
+                  },
+                })}
+                xAxis={[{ scaleType: 'band', data: ['group A', 'group B', 'group C', 'group D', 'group E'] }]}
+                series={[{ data: [4, 3, 5, 1, 4] }, { data: [1, 6, 3, 7, 5] }, { data: [5, 6, 4, 2, 1] }, { data: [4, 3, 2, 1, 5] }]}
+                className='w-2/3 h-full'
+                borderRadius={10}
+                //width={500}
+                //height={300}
+              />
+            </div>
+            <div className='actionsContainer w-1/3 h-full'>
+              <ActionsCard/>
+            </div>
+          </div>
+
+          {/* <div classname='grid grid-cols-3 gap-4 mx-8'>
+            <div className='flex h-full'>
             {
               infoCards.map(item=> (
                 <InfoCard id={item.id} title={item.title} value={item.value} marginPercent={item.marginPercent} success={item.success}/>
-              ))
-            }
-          </div>
-          <div className='w-1/3 h-full'>
-            <ActionsCard/>
-          </div>
-        </div> */}
+                ))
+                }
+                </div>
+                <div className='w-1/3 h-full'>
+                <ActionsCard/>
+                </div>
+                </div> */}
 
-        <div className='flex flex-row mx-8 h-[720px] justify-between pt-8'>
-          <div className='w-2/3 h-full pb-12'>
-            <RecentTable/>
-          </div>
-          <div className='w-[413px] h-full pb-12'>
-            <FeedbackCard/>
+          <div className='flex flex-row mx-8 h-[50%] justify-between pt-12'>
+            <div className='w-2/3'>
+              <RecentTable/>
+            </div>
+            <div className='w-[413px]'>
+              <FeedbackCard/>
+            </div>
           </div>
         </div>
-      </Layout>
+        {/* </Layout> */}
+      </div>
     </div>
   )
 }

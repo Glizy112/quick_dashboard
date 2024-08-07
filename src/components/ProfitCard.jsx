@@ -1,5 +1,5 @@
 import React from 'react'
-import { FiArrowUpCircle } from 'react-icons/fi'
+import { VscTriangleUp } from 'react-icons/vsc'
 import ProgressBar from './ProgressBar'
 
 const ProfitCard = () => {
@@ -9,7 +9,7 @@ const ProfitCard = () => {
             <p className='font-inter font-normal text-sm text-slate-100'> Net Profit </p>
             <h2 className='font-inter font-bold text-3xl text-white'> $6759.25 </h2>
             <div className='flex items-center mt-2'>
-                <FiArrowUpCircle color={"#22c55e"} size={18}/>
+                <VscTriangleUp color={"#22c55e"} size={18}/>
                 <p 
                   className='font-inter text-sm ml-2 text-green-500'
                 > 3% </p>

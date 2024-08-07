@@ -83,7 +83,7 @@ const RecentTable = () => {
             }
         </div> */}
 
-        <table className='mt-6'>
+        <table className='mt-8'>
             <thead>
                 <tr>
                     {

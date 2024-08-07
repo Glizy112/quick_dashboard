@@ -6,7 +6,7 @@ import UserIcon from './UserIcon';
 
 const NavBar = () => {
   return (
-    <div className='container bg-slate-800 flex h-24 items-center justify-between p-9'>
+    <div className='w-full bg-slate-800 flex h-24 items-center justify-between p-9'>
         <div className='flex w-2/3 items-center'>
             <img src={logo} width={'3.5%'}/>
             <SearchBar/>
